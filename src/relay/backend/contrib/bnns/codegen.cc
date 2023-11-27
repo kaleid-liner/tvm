@@ -87,22 +87,22 @@ class BNNSJSONSerializer : public backend::contrib::JSONSerializer {
       auto body = fn->body.as<CallNode>();
       if (name == "bnns.conv2d_bias_relu") {
         auto add_op_type = IsOp(body->args[0].as<CallNode>(), "add") ? "add" : "nn.bias_add";
-        call = GetRootCall(body, 2, {"nn.conv2d", add_op_type, "nn.relu"});
+        call = GetRootCall(body, 2, (const std::vector<std::string>){"nn.conv2d", add_op_type, "nn.relu"});
       } else if (name == "bnns.conv2d_bias") {
         auto add_op_type = IsOp(body, "add") ? "add" : "nn.bias_add";
-        call = GetRootCall(body, 1, {"nn.conv2d", add_op_type});
+        call = GetRootCall(body, 1, (const std::vector<std::string>){"nn.conv2d", add_op_type});
       } else if (name == "bnns.conv2d_relu") {
-        call = GetRootCall(body, 1, {"nn.conv2d", "nn.relu"});
+        call = GetRootCall(body, 1, (const std::vector<std::string>){"nn.conv2d", "nn.relu"});
         ICHECK(call->op.as<OpNode>()) << "Not op node";
       } else if (name == "bnns.conv2d_bias_sigmoid") {
         auto add_op_type = IsOp(body->args[0].as<CallNode>(), "add") ? "add" : "nn.bias_add";
-        call = GetRootCall(body, 2, {"nn.conv2d", add_op_type, "sigmoid"});
+        call = GetRootCall(body, 2, (const std::vector<std::string>){"nn.conv2d", add_op_type, "sigmoid"});
         ICHECK(call->op.as<OpNode>()) << "Not op node";
       } else if (name == "bnns.conv2d_sigmoid") {
-        call = GetRootCall(body, 1, {"nn.conv2d", "sigmoid"});
+        call = GetRootCall(body, 1, (const std::vector<std::string>){"nn.conv2d", "sigmoid"});
         ICHECK(call->op.as<OpNode>()) << "Not op node";
       } else if (name == "bnns.dense_bias") {
-        call = GetRootCall(fn->body.as<CallNode>(), 1, {"nn.dense", "add"});
+        call = GetRootCall(fn->body.as<CallNode>(), 1, (const std::vector<std::string>){"nn.dense", "add"});
       } else if (name == "bnns.dense_bias_gelu") {
         call = FindCallWithName(fn->body.as<CallNode>(), 10, "nn.dense");
       } else {

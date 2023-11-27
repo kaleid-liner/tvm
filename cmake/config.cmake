@@ -154,7 +154,7 @@ set(USE_MICRO_STANDALONE_RUNTIME OFF)
 # - OFF: disable llvm, note this will disable CPU codegen
 #        which is needed for most cases
 # - /path/to/llvm-config: enable specific LLVM when multiple llvm-dev is available.
-set(USE_LLVM OFF)
+set(USE_LLVM ON)
 
 # Whether use MLIR to help analyze, requires USE_LLVM is enabled
 # Possible values: ON/OFF
@@ -310,7 +310,7 @@ set(USE_CLML_GRAPH_EXECUTOR OFF)
 set(USE_ANTLR OFF)
 
 # Whether use Relay debug mode
-set(USE_RELAY_DEBUG OFF)
+set(USE_RELAY_DEBUG ON)
 
 # Whether to build fast VTA simulator driver
 set(USE_VTA_FSIM OFF)
@@ -357,7 +357,7 @@ set(USE_HEXAGON_QHL OFF)
 set(USE_TARGET_ONNX OFF)
 
 # Whether enable BNNS runtime
-set(USE_BNNS OFF)
+set(USE_BNNS ON)
 
 # Whether to build static libtvm_runtime.a, the default is to build the dynamic
 # version: libtvm_runtime.so.
