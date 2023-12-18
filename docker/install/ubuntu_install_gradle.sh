@@ -22,8 +22,8 @@ set -o errexit -o nounset
 set -o pipefail
 
 GRADLE_HOME=/opt/gradle
-GRADLE_VERSION=4.10-rc-2
-GRADLE_SHA256=e90d3c32910e259814bcca82b3911172ecca1ff1ab5ed69b4de3c1df8b378b40
+GRADLE_VERSION=8.5
+GRADLE_SHA256=9d926787066a081739e8200858338b4a69e837c3a821a33aca9db09dd4a41026
 
 echo "Downloading Gradle"
 wget -q --output-document=gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"

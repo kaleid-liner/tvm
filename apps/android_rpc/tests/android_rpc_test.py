@@ -39,7 +39,7 @@ arch = "arm64"
 target = "llvm -mtriple=%s-linux-android" % arch
 
 # whether enable to execute test on OpenCL target
-test_opencl = False
+test_opencl = True
 # whether enable to execute test on Vulkan target
 test_vulkan = False
 
