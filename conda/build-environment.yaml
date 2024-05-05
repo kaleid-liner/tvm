@@ -29,7 +29,7 @@ dependencies:
   - conda-build
 # - git
   - llvmdev >=11, <=17.0.6 # something wrong with llvmdev=18
-  - clang
+  - clangxx
   - numpy
   - pytest
   - cython
